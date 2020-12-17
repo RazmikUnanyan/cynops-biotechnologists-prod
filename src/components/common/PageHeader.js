@@ -15,8 +15,8 @@ const PageHeader = ({titleFirst, titleRed, titleLast, description}) => {
         <div className="page_header">
             <div className="page_header__container">
                 <div>
-                    <h1 data-aos="fade-down">{titleFirst} <br/><span> {titleRed} </span> {titleLast}</h1>
-                    <p data-aos="flip-down">{description}</p>
+                    <h1>{titleFirst} <br/><span> {titleRed} </span> {titleLast}</h1>
+                    <p>{description}</p>
                 </div>
             </div>
         </div>)
