@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,400;1,500;1,600&display=swap');
+@import "mixins";
+@import "variables";
+
+
+.header {
+  width: 100%;
+  position: fixed;
+  padding: 0 ;
+  background-color: $header-color;
+  &__container{
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    max-width: $container-width;
+  }
+  &__logo {
+    img {
+      padding: 18px 10px;
+      max-height: 100px;
+    }
+
+  }
+}
+
+
+
+
+
+
+
