@@ -15,9 +15,9 @@ const Ul = styled.ul`
 
 
   li {
-  
     list-style: none;
     transition: 0.5s;
+    
 
      a {
      margin: 18px 10px;
@@ -68,7 +68,7 @@ const Ul = styled.ul`
   
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color:  rgba(0, 0, 0, 0.80);
+    background-color:  rgba(0, 0, 0, 0.60);
     position: fixed;
     transform: ${({open}) => open ? 'translateX(0)' : 'translateX(100%)'};
     top: 0;
@@ -90,6 +90,7 @@ const Ul = styled.ul`
 
 const NavBar = ({open}) => {
     return (
+
         <Ul open={open}>
             <li><NavLink exact to="/">Home</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>

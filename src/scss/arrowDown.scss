@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,400;1,500;1,600&display=swap');
+@import "mixins";
+@import "variables";
+
+.arrow-down{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    display: block;
+    margin-top: 50px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 5px solid #ffffff;
+    border-right: 5px solid #ffffff;
+    transform: rotate(45deg);
+    animation: arrow-down 2s infinite;
+  }
+  @keyframes arrow-down {
+    0%{
+      opacity: 0;
+      transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+      transform: rotate(45deg) translate(20px,20px);
+    }
+  }
+}
+

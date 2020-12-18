@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 @import "~normalize.css";
+@import "~bootstrap/scss/bootstrap";
 
 @import "header";
 @import "pageHeader";
 @import "content";
+@import "arrowDown";
+@import "footer";
