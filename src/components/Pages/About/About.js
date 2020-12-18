@@ -63,7 +63,7 @@ const About = () => {
             <PageHeader titleFirst='About'
                         titleRed='The'
                         titleLast='Company'
-                        description='News and articles in the media.'/>
+                        description='News and articles in the media.' setNews={setNews}/>
             {news.map((n, index) => <ContentCreator news={n} key={index}
 
             />)}
