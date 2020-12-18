@@ -36,12 +36,6 @@ const Footer =() => {
                     </div>
                 </div>
             </div>
-
-            <div className="container">
-                <div className="credits">
-                    &copy; Designed by <a href="https://www.facebook.com/unanyan.razmik/">Razmik Hunanyan</a>
-                </div>
-            </div>
         </footer>
     )
 };

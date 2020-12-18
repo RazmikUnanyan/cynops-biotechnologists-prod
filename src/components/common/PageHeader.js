@@ -27,10 +27,10 @@ const PageHeader = ({titleFirst, titleRed, titleLast, description}) => {
                         <p data-aos="flip-up">{description}</p>
                         <section className="intro">
                             <div className="intro-container wow fadeIn">
-                                <a onClick={handleClickOpenVideo} className="venobox play-btn mb-4"
+                                <span onClick={handleClickOpenVideo} className="venobox play-btn mb-4"
                                    data-vbtype="video"
                                    data-autoplay="true">
-                                </a>
+                                </span>
                                 <Modal
                                     visible={visibleModal}
                                     onClose={handleCloseModal}
@@ -38,7 +38,7 @@ const PageHeader = ({titleFirst, titleRed, titleLast, description}) => {
                                     <FormControl component="fieldset" fullWidth>
                                         <FormGroup aria-label="position" row>
                                             <iframe src="https://video.nikatv.ru/video/SruTwpDATQ8kQco2cGei"
-                                                    width="500" height="350"
+                                                    width="100%" height="100%" title='video'
                                                     frameBorder="0" allowFullScreen>
                                             </iframe>
                                         </FormGroup>
