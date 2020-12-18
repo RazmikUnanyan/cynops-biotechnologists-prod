@@ -5,6 +5,7 @@ import {Link} from "react-scroll";
 import Modal from "./Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
+import video from '../../assets/img/video.mp4'
 
 
 const PageHeader = ({titleFirst, titleRed, titleLast, description}) => {
@@ -21,6 +22,12 @@ const PageHeader = ({titleFirst, titleRed, titleLast, description}) => {
     return (
         <>
             <div className="page_header">
+                <div className="video">
+                    <video  autoPlay muted loop className="video-back"
+                    >
+                        <source src={video} type="video/mp4" />
+                    </video>
+                </div>
                 <div className="page_header__container">
                     <div>
                         <h2 data-aos="fade-down">{titleFirst} <br/><span> {titleRed} </span> {titleLast}</h2>
