@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
-  position: fixed;
+  position: absolute;
   top: 15px;
   right: 20px;
   z-index: 20;

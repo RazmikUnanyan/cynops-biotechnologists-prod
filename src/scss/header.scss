@@ -6,8 +6,10 @@
 .header {
   width: 100%;
   position: fixed;
+  top: 0;
   padding: 0 ;
   background-color: $header-color;
+  z-index: 1;
   &__container{
     font-family: 'Raleway', sans-serif;
     display: flex;
@@ -19,7 +21,7 @@
   &__logo {
     img {
       padding: 18px 10px;
-      max-height: 100px;
+      height: 100px;
     }
 
   }
