@@ -27,10 +27,10 @@ const Footer =() => {
                             </p>
 
                             <div className="social-links">
-                                <a href="#" className="twitter"><TwitterIcon/></a>
-                                <a href="#" className="facebook"><FacebookIcon/></a>
-                                <a href="#" className="instagram"><InstagramIcon/></a>
-                                <a href="#" className="linkedin"><LinkedInIcon/></a>
+                                <a href="www.facebook.com" className="twitter"><TwitterIcon/></a>
+                                <a href="www.facebook.com" className="facebook"><FacebookIcon/></a>
+                                <a href="www.facebook.com" className="instagram"><InstagramIcon/></a>
+                                <a href="www.facebook.com" className="linkedin"><LinkedInIcon/></a>
                             </div>
                         </div>
                     </div>
