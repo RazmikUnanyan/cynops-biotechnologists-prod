@@ -4,39 +4,56 @@
 @import "variables";
 
 
-.content-header {
-  margin-bottom: 60px;
-  position: relative;
-  padding-bottom: 20px;
-  &:before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 60px;
-    height: 5px;
-    background: #f82249;
-    bottom: 0;
-    left: calc(50% - 25px);
-  }
-  h2 {
-    font-size: 36px;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 10px;
+.content-details {
+  padding: 150px 0;
+  font-family: "Open Sans", sans-serif;
+
+  video {
+    background-color: #101522;
+    width: 570px;
+    height: 480px;
+    border-radius: 10px;
+    @media (max-width: 768px) {
+      height: auto;
+      width: 100%;
+    }
   }
 
-  p {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    font-size: 18px;
-    font-weight: 500;
-    color: #9195a2;
+
+  .content-header {
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 60px;
+      height: 5px;
+      background: #f82249;
+      bottom: 0;
+      left: calc(50% - 25px);
+    }
+
+    h2 {
+      font-size: 36px;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: #9195a2;
+    }
   }
-}
-.content-details {
-  padding: 60px 0;
-  font-family: "Open Sans", sans-serif;
+
+
   .details {
     h2 {
       color: #112363;
@@ -45,30 +62,7 @@
       margin-bottom: 10px
     }
 
-    .social {
-      margin-bottom: 15px;
-    }
 
-    .social a {
-      background: #e9edfb;
-      color: #112363;
-      line-height: 1;
-      display: inline-block;
-      text-align: center;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      padding-top: 9px;
-    }
-
-    .social a:hover {
-      background: #f82249;
-      color: #fff;
-    }
-
-    .social a i {
-      font-size: 18px;
-    }
 
     p {
       color: #112363;
@@ -77,10 +71,12 @@
     }
   }
   img {
-    width: 500px;
+    width: 570px;
     height: 480px;
     @media (max-width: 768px) {
-      height: 380px;
+      height: auto;
     }
   }
+
 }
+

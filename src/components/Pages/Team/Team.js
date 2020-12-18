@@ -1,6 +1,5 @@
 import React from "react";
 import '../../../scss/team.scss'
-import PageHeader from "../../common/PageHeader";
 import narek from '../../../assets/img/narek.jpg'
 import nikita from '../../../assets/img/nikita.jpg'
 import Ekaterina from '../../../assets/img/Ekaterina.jpg'
@@ -58,10 +57,6 @@ const Team = () => {
 
     return (
         <>
-            <PageHeader titleFirst='Meet '
-                        titleLast='Team'
-                        titleRed='Our'
-                        description='The reason for success is a good team.'/>
             <section id='main_content'>
                         <section className="wow fadeIn content-details" style={{backgroundColor:'#F9F9F9'}}>
                             <div className="container">

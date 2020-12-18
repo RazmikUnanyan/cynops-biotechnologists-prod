@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import PageHeader from "../../common/PageHeader";
 import ContentCreator from "../../ContentCreator";
+import videoContent from "../../../assets/img/video_content.mp4"
 
 const About = () => {
 
     const [news, setNews] = useState([
         {
-            imgUrl: 'https://files.vm.ru/photo/vecherka/2013/08/doc6b9yq3hy45i1dctc6304_800_480.jpg',
+            videoReview: videoContent,
             videoUrl: 'https://nikatv.ru/tv/reportazhi-video/h4S1cmRTeBVmSQtFFQpW',
             titleHeader: 'Интервью',
-            backgroundColor:'#f5eef7',
+            backgroundColor:'white',
             titleHeader2: 'Юлия Мигуненко, Илья Алиханов, телекомпания Ника ТВ.',
             detailsHeading: 'Репортаж на Ника ТВ',
             detailsP1: 'Новые технологии калужских инженеров помогут людям с ограниченными возможностями.\n' +
@@ -31,7 +31,7 @@ const About = () => {
 
         },
         {
-            backgroundColor:'white',
+            backgroundColor:'rgb(235,235,243)',
             imgUrl: 'https://lh3.googleusercontent.com/proxy/0AvtxDD5oI25UXKTI-thSDTBLu-g8DqvRWt-pcz0tnH_5mOkMGbplEBPMhJuiEbJ3U462YtKKgsnNq1PfAGiQuyb1aOr4aQKmYYsg2hZeXcew_Ozutn7USZTWXoygdEPtLL1vZndEkFWATfo',
             videoUrl: 'https://nikatv.ru/tv/reportazhi-video/h4S1cmRTeBVmSQtFFQpW',
             titleHeader: 'Интервью',
@@ -60,13 +60,7 @@ const About = () => {
 
     return (
         <>
-            <PageHeader titleFirst='About'
-                        titleRed='The'
-                        titleLast='Company'
-                        description='News and articles in the media.' setNews={setNews}/>
-            {news.map((n, index) => <ContentCreator news={n} key={index}
-
-            />)}
+            {news.map((n, index) => <ContentCreator news={n} key={index} setNews={setNews}/>)}
         </>
 
     )
