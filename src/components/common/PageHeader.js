@@ -1,23 +1,18 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import '../../scss/pageHeader.scss'
 import ArrowDown from "./ArrowDown";
 import {Link} from "react-scroll";
 import Modal from "./Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import video from '../../assets/img/video.mp4'
+import video from '../../assets/img/video.mp4';
 
 
 const PageHeader = ({titleFirst, titleRed, titleLast, description}) => {
 
     const [visibleModal, setVisibleModal] = useState(false);
-
-    const handleClickOpenVideo = () => {
-        setVisibleModal(true);
-    };
-    const handleCloseModal = () => {
-        setVisibleModal(false);
-    };
+    const handleClickOpenVideo = useCallback(() => {setVisibleModal(true);}, []);
+    const handleCloseModal = useCallback(() => {setVisibleModal(false);}, []);
 
     return (
         <>
