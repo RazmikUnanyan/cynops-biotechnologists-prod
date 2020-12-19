@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Form, Formik } from "formik";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import emailjs from "emailjs-com";
 import FormField from "../../common/FormField";
 import Icon from "@material-ui/core/Icon";
@@ -11,12 +10,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import TextField from "@material-ui/core/TextField";
 import { Col, Container, Row, Tab } from "react-bootstrap";
 
-const useStyles = makeStyles((theme) => ({
-    button: {
-        margin: theme.spacing(1),
-    },
-}));
-
 const initialValues = {
     name: "",
     email: "",
@@ -25,16 +18,10 @@ const initialValues = {
 };
 
 const Contacts = () => {
-    const classes = useStyles();
-
-    // modal
     const [open, setOpen] = useState(false);
-
     const handleClose = useCallback(() => {
         setOpen(false);
     }, []);
-
-    //
 
     function sendEmail(e) {
         e.preventDefault();
@@ -66,7 +53,7 @@ const Contacts = () => {
                             <Formik initialValues={initialValues}>
                                 {(formik) => {
                                     return (
-                                        <Form className="FormikField">
+                                        <Form className="FormikField" >
                                             <form onSubmit={sendEmail}>
                                                 <FormField name="name" label="Name" />
                                                 <FormField name="email" label="Email Address" />
@@ -84,12 +71,10 @@ const Contacts = () => {
                                                     disabled={!formik.dirty}
                                                     variant="contained"
                                                     color="secondary"
-                                                    className={classes.button}
                                                     size="small"
                                                     endIcon={<Icon>send</Icon>}
                                                     type="submit"
                                                 >
-                                                    Send
                                                 </Button>
                                             </form>
                                         </Form>

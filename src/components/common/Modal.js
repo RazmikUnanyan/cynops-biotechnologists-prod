@@ -12,7 +12,6 @@ const Modal = ({ title, onClose, visible = false, children }) => {
 
     return (
         <Dialog
-
             open={visible}
             onClose={onClose}
             aria-labelledby="form-dialog-title"

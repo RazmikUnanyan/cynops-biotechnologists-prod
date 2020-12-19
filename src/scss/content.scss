@@ -1,32 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,400;1,500;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 @import "mixins";
 @import "variables";
 
-
 .content-details {
-  padding: 150px 0;
   font-family: "Open Sans", sans-serif;
+  height: 100vh;
 
-  video {
-    background-color: #101522;
-    width: 570px;
-    height: 480px;
-    border-radius: 10px;
-    @media (max-width: 768px) {
-      height: auto;
-      width: 100%;
+  .video_content {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    video {
+      background-color: #101522;
+      width: 520px;
+      border-radius: px;
+      height: 100%;
+      @media (max-width: 768px) {
+        height: auto;
+        width: 100%;
+      }
+    }
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 520px;
+      border-radius: px;
+      height: 100%;
+      background-color: rgba(4, 6, 27, 0.829);
+      color: #f82249;
+      position: absolute;
+
+      &:hover {
+        background-color: rgba(49, 7, 7, 0);
+        transform: 1s;
+      }
+
+      @media (max-width: 768px) {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 
-
   .content-header {
-    margin-bottom: 60px;
-    position: relative;
-    padding-bottom: 20px;
-
+    padding: 30px;
+    text-transform: uppercase;
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       display: block;
       width: 60px;
@@ -34,49 +56,40 @@
       background: #f82249;
       bottom: 0;
       left: calc(50% - 25px);
+      margin: 20px 0;
     }
 
     h2 {
+      color: #ffffff;
       font-size: 36px;
       text-align: center;
       font-weight: 700;
       margin-bottom: 10px;
     }
-
-    p {
-      text-align: center;
-      padding: 0;
-      margin: 0;
-      font-size: 18px;
-      font-weight: 500;
-      color: #9195a2;
-    }
   }
-
 
   .details {
     h2 {
-      color: #112363;
+      color: #f82249;
       font-size: 28px;
       font-weight: 700;
-      margin-bottom: 10px
+      margin-bottom: 10px;
     }
 
-
-
     p {
-      color: #112363;
+      color: #ffffff;
       font-size: 15px;
       margin-bottom: 10px;
     }
   }
   img {
     width: 570px;
-    height: 480px;
     @media (max-width: 768px) {
       height: auto;
     }
   }
-
+  @media (max-width: 1100px) {
+    height: auto;
+    width: 100%;
+  }
 }
-
