@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom'
 import NavBar from './NavBar';
 
 const StyledBurger = styled.div`
@@ -37,18 +38,23 @@ const StyledBurger = styled.div`
 `;
 
 const Burger = () => {
-    const [open, setOpen] = useState(false);
-    const onBurgerClick = () => setOpen(!open);
+  const [open, setOpen] = useState(false);
+  const onBurgerClick = useCallback(() => setOpen(!open));
 
-    return (
-        <>
-            <StyledBurger open={open} onClick={onBurgerClick}>
-                <div />
-                <div />
-                <div />
-            </StyledBurger>
-            <NavBar open={open}/>
-        </>
-    )
+  const { pathname } = useLocation()
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  return (
+    <>
+      <StyledBurger open={open} onClick={onBurgerClick}>
+        <div />
+        <div />
+        <div />
+      </StyledBurger>
+      <NavBar open={open} />
+    </>
+  )
 };
 export default Burger
