@@ -39,7 +39,7 @@ const StyledBurger = styled.div`
 
 const Burger = () => {
   const [open, setOpen] = useState(false);
-  const onBurgerClick = useCallback(() => setOpen(!open), []);
+  const onBurgerClick = () => setOpen(!open);
 
   const { pathname } = useLocation()
   useEffect(() => {
