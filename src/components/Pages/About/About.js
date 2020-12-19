@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ContentCreator from "../../ContentCreator";
 import videoContent from "../../../assets/img/video_content.mp4"
 
