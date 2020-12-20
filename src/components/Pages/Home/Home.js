@@ -80,7 +80,7 @@ const Home = ({news}) => {
                                 </p>
                             </div>
                             <span style={{float: 'left'}}>{!n.isBiography
-                                ? <NavLink exact to='/home/1'>Подробнее об Разработчике</NavLink>
+                                ? <NavLink exact to={'/home/' + n.id}>Подробнее об Разработчике</NavLink>
                                 : <NavLink exact to='/home'>Интервью</NavLink>
                             }
                         </span>

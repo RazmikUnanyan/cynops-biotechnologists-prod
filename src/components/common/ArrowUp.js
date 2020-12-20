@@ -2,12 +2,12 @@ import React from "react";
 import "../../scss/arrowDown.scss"
 
 
-const ArrowUp = () =>{
+const ArrowDown = () =>{
     return(
-        <div className="arrow-down">
+        <div className="arrow-up">
             <span></span>
         </div>
     )
 };
 
-export default ArrowUp;
+export default ArrowDown;

@@ -103,7 +103,7 @@ const NavBar = ({open, setOpen}) => {
             <Ul open={open} onClick={()=>setOpen(false)}>
                 <li><NavLink exact to="/home">Home</NavLink></li>
                 <li><NavLink exact to="/about">About</NavLink></li>
-                <li><NavLink exact to="/models">3D Models</NavLink></li>
+                <li><NavLink exact to="/models/1">3D Models</NavLink></li>
                 <li><NavLink exact to="/team">Our Team</NavLink></li>
                 <ContactsModal handleOpenEmailForm={handleOpenEmailForm}
                                emailForm={emailForm}

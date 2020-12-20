@@ -31,3 +31,33 @@
   }
 }
 
+
+.arrow-up{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    display: block;
+    margin-top: 50px;
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #ffffff;
+    border-left: 5px solid #ffffff;
+    transform: rotate(45deg);
+    animation: arrow-up 2s infinite;
+  }
+  @keyframes arrow-up {
+    0%{
+      opacity: 0;
+      transform: rotate(45deg) translate(20px,20px);
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+      transform: rotate(45deg) translate(-20px,-20px);
+    }
+  }
+}
+
