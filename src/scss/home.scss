@@ -4,8 +4,12 @@
 @import "variables";
 
 .content-details {
+  background-color: #040919;
   font-family: "Open Sans", sans-serif;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .video_content {
     display: flex;
@@ -14,7 +18,7 @@
     video {
       background-color: #101522;
       width: 520px;
-      border-radius: px;
+      border-radius: 10px;
       height: 100%;
       @media (max-width: 768px) {
         height: auto;
@@ -26,15 +30,14 @@
       justify-content: center;
       align-items: center;
       width: 520px;
-      border-radius: px;
+      border-radius: 10px;
       height: 100%;
-      background-color: rgba(4, 6, 27, 0.829);
+      background-color: rgba(4, 6, 27, 0.71);
       color: #f82249;
       position: absolute;
 
       &:hover {
         background-color: rgba(49, 7, 7, 0);
-        transform: 1s;
       }
 
       @media (max-width: 768px) {
@@ -85,7 +88,7 @@
   img {
     width: 570px;
     @media (max-width: 768px) {
-      height: auto;
+      height: 100%;
     }
   }
   @media (max-width: 1100px) {

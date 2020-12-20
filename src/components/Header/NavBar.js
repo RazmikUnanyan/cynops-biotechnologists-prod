@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react';
+import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import Modal from "../common/Modal";
@@ -74,7 +74,7 @@ const Ul = styled.ul`
     flex-flow: column nowrap;
     background-color:  rgba(0, 0, 0, 0.85);
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({open}) => open ? 'translateX(0)' : 'translateX(100%)'};
     top: 0;
     right: 0;
     width: 300px;
@@ -92,38 +92,37 @@ const Ul = styled.ul`
   }
 `;
 
-const NavBar = ({ open }) => {
+const NavBar = ({open}) => {
 
     const [emailForm, setEmailForm] = useState(false);
     const handleOpenEmailForm = useCallback(() => setEmailForm(true), []);
     const handleCloseModal = useCallback(() => setEmailForm(false), []);
 
     return (
-
         <Ul open={open}>
-            <li><NavLink exact to="/">Home</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
-            <li><NavLink to="/models">3D Models</NavLink></li>
-            <li><NavLink to="/team">Our Team</NavLink></li>
+            <li><NavLink exact to="/home">Home</NavLink></li>
+            <li><NavLink exact to="/about">About</NavLink></li>
+            <li><NavLink exact to="/models">3D Models</NavLink></li>
+            <li><NavLink exact to="/team">Our Team</NavLink></li>
             <ContactsModal handleOpenEmailForm={handleOpenEmailForm}
-                emailForm={emailForm}
-                handleCloseModal={handleCloseModal}
+                           emailForm={emailForm}
+                           handleCloseModal={handleCloseModal}
             />
-            <li><NavLink to="/icon"><AccountCircleIcon /></NavLink></li>
+            <li><NavLink to="/icon"><AccountCircleIcon/></NavLink></li>
         </Ul>
     )
 };
 
-const ContactsModal = ({ handleOpenEmailForm, emailForm, handleCloseModal }) => (
+const ContactsModal = ({handleOpenEmailForm, emailForm, handleCloseModal}) => (
     <li>
-        <button onClick={handleOpenEmailForm}><MailOutlineIcon /></button>
+        <button onClick={handleOpenEmailForm}><MailOutlineIcon/></button>
         <Modal
             visible={emailForm}
             onClose={handleCloseModal}
         >
             <FormControl component="fieldset" fullWidth>
                 <FormGroup aria-label="position" row>
-                    <Contacts />
+                    <Contacts/>
                 </FormGroup>
             </FormControl>
         </Modal>
