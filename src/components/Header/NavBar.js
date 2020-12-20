@@ -8,6 +8,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import Contacts from "../Pages/Contacts/Contacts";
 
+
 const Ul = styled.ul`
   list-style: none;
   display: flex;
@@ -92,24 +93,24 @@ const Ul = styled.ul`
   }
 `;
 
-const NavBar = ({open}) => {
+const NavBar = ({open, setOpen}) => {
 
     const [emailForm, setEmailForm] = useState(false);
     const handleOpenEmailForm = useCallback(() => setEmailForm(true), []);
     const handleCloseModal = useCallback(() => setEmailForm(false), []);
 
     return (
-        <Ul open={open}>
-            <li><NavLink exact to="/home">Home</NavLink></li>
-            <li><NavLink exact to="/about">About</NavLink></li>
-            <li><NavLink exact to="/models">3D Models</NavLink></li>
-            <li><NavLink exact to="/team">Our Team</NavLink></li>
-            <ContactsModal handleOpenEmailForm={handleOpenEmailForm}
-                           emailForm={emailForm}
-                           handleCloseModal={handleCloseModal}
-            />
-            <li><NavLink to="/icon"><AccountCircleIcon/></NavLink></li>
-        </Ul>
+            <Ul open={open} onClick={()=>setOpen(false)}>
+                <li><NavLink exact to="/home">Home</NavLink></li>
+                <li><NavLink exact to="/about">About</NavLink></li>
+                <li><NavLink exact to="/models">3D Models</NavLink></li>
+                <li><NavLink exact to="/team">Our Team</NavLink></li>
+                <ContactsModal handleOpenEmailForm={handleOpenEmailForm}
+                               emailForm={emailForm}
+                               handleCloseModal={handleCloseModal}
+                />
+                <li><NavLink to="/icon"><AccountCircleIcon/></NavLink></li>
+            </Ul>
     )
 };
 

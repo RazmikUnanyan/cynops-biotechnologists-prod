@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom'
 import NavBar from './NavBar';
+import {animateScroll as scroll} from "react-scroll";
 
 const StyledBurger = styled.div`
   width: 2rem;
@@ -41,20 +41,15 @@ const Burger = () => {
   const [open, setOpen] = useState(false);
   const onBurgerClick = () => setOpen(!open);
 
-  const { pathname } = useLocation()
-  useEffect(() => {
-    setOpen(false)
-  }, [pathname])
-
   return (
-    <>
+    <div onClick={()=>scroll.scrollToTop()}>
       <StyledBurger open={open} onClick={onBurgerClick}>
         <div />
         <div />
         <div />
       </StyledBurger>
-      <NavBar open={open} />
-    </>
+      <NavBar open={open} setOpen={setOpen}/>
+    </div>
   )
 };
 export default Burger

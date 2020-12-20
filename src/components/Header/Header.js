@@ -9,8 +9,8 @@ import logo from "../../assets/img/logo.png";
 const Header = () => {
     return (
         <header className="header">
-            <div className="header__container">
-            <NavLink exact to="/" className="header__logo"><img src={logo} alt=""/></NavLink>
+            <div className="header__container" >
+            <NavLink exact to="/" className="header__logo"><img src={logo} alt="" /></NavLink>
             <Burger/>
             </div>
         </header>
