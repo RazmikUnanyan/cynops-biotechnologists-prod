@@ -7,6 +7,8 @@ import Modal from "../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import Contacts from "../Pages/Contacts/Contacts";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 
 const Ul = styled.ul`
@@ -99,6 +101,10 @@ const NavBar = ({open, setOpen}) => {
     const handleOpenEmailForm = useCallback(() => setEmailForm(true), []);
     const handleCloseModal = useCallback(() => setEmailForm(false), []);
 
+    const [logInForm, setLogInForm] = useState(false);
+    const handleOpenLogInForm = useCallback(() => setLogInForm(true), []);
+    const handleCloseLogInForm = useCallback(() => setLogInForm(false), []);
+
     return (
             <Ul open={open} onClick={()=>setOpen(false)}>
                 <li><NavLink exact to="/home">Home</NavLink></li>
@@ -109,7 +115,10 @@ const NavBar = ({open, setOpen}) => {
                                emailForm={emailForm}
                                handleCloseModal={handleCloseModal}
                 />
-                <li><NavLink to="/icon"><AccountCircleIcon/></NavLink></li>
+                <LogInModal handleOpenLogInForm={handleOpenLogInForm}
+                            logInForm={logInForm}
+                            handleCloseLogInForm={handleCloseLogInForm}
+                />
             </Ul>
     )
 };
@@ -124,6 +133,45 @@ const ContactsModal = ({handleOpenEmailForm, emailForm, handleCloseModal}) => (
             <FormControl component="fieldset" fullWidth>
                 <FormGroup aria-label="position" row>
                     <Contacts/>
+                </FormGroup>
+            </FormControl>
+        </Modal>
+    </li>
+);
+
+const LogInModal = ({handleOpenLogInForm, logInForm, handleCloseLogInForm}) => (
+    <li>
+        <button onClick={handleOpenLogInForm}><AccountCircleIcon/></button>
+        <Modal
+            visible={logInForm}
+            onClose={handleCloseLogInForm}
+        >
+            <FormControl component="fieldset" fullWidth>
+                <FormGroup aria-label="position" row>
+                    <TextField
+                        id="email"
+                        label="E-Mail"
+                        multiline
+                        type="email"
+                        fullWidth
+                    />
+                    <TextField
+                        id="password"
+                        label="Пароль"
+                        multiline
+                        type="password"
+                        fullWidth
+                    />
+                    <Button
+                        onClick={handleCloseLogInForm}
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                        style={{margin:'10px'}}
+
+                    >
+                        Войти
+                    </Button>
                 </FormGroup>
             </FormControl>
         </Modal>
