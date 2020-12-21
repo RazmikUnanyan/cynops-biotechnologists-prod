@@ -1,6 +1,4 @@
 import React, { useCallback, useState } from "react";
-import ArrowDown from "../../common/ArrowDown";
-import { Link } from "react-scroll";
 import Modal from "../../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -50,7 +48,6 @@ const HomeIntro = ({ titleFirst, titleRed, titleLast, description }) => {
                             </Modal>
                         </div>
                     </section>
-                    <Link to="main_content" smooth={true} duration={1000}><ArrowDown /></Link>
                 </div>
             </div>
         </div>

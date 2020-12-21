@@ -24,7 +24,7 @@ const Home = ({news}) => {
         <>
             {news.map(n => <section key={n.id} className="wow fadeIn content-details">
                 <div className="container">
-                    <div className="content-header" data-aos="fade-down">
+                    <div className="content-header" data-aos="zoom-out">
                         <h2>{n.titleHeader}</h2>
                     </div>
                     <div className="row">
@@ -61,7 +61,7 @@ const Home = ({news}) => {
                             </FormControl>
                         </Modal>
                         <div className="col-md-6">
-                            <div className="details">
+                            <div className="details" data-aos="zoom-out">
                                 <h2>{n.detailsHeading}</h2>
                                 {n.isBiography && <div className="social-links">
                                     <a href="www.facebook.com" className="twitter"><TwitterIcon/></a>

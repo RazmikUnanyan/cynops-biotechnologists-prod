@@ -30,10 +30,10 @@ const Footer =() => {
                                 <strong>Email:</strong> biopro40@yandex.ru<br/>
                             </p>
                             <div className="social-links">
-                                <a href="www.facebook.com" className="twitter"><TwitterIcon/></a>
-                                <a href="www.facebook.com" className="facebook"><FacebookIcon/></a>
-                                <a href="www.facebook.com" className="instagram"><InstagramIcon/></a>
-                                <a href="www.facebook.com" className="linkedin"><LinkedInIcon/></a>
+                                <a href="www.cynops.ru" className="twitter"><TwitterIcon/></a>
+                                <a href="www.cynops.ru" className="facebook"><FacebookIcon/></a>
+                                <a href="www.cynops.ru" className="instagram"><InstagramIcon/></a>
+                                <a href="www.cynops.ru" className="linkedin"><LinkedInIcon/></a>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ const Footer =() => {
             </div>
             <div className="container">
                 <div className="credits">
-                    Designed by <a href="https://www.facebook.com/unanyan.razmik/">Razmik Unanyan</a>
+                    &copy; Designed by <a href="https://www.facebook.com/unanyan.razmik/">Razmik Unanyan</a>
                 </div>
             </div>
         </footer>

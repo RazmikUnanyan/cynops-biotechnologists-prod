@@ -57,10 +57,10 @@ const biography = [
 const HomeContainer = () => {
     return (
         <>
-            <HomeIntro titleFirst='Get'
-                       titleLast='touch'
-                       titleRed='in'
-                       description='You can contact us online.'/>
+            <HomeIntro titleFirst='you are'
+                       titleRed='not'
+                       titleLast='alone'
+                       description='Посмотреть интервью'/>
             <Switch>
                 <Route exact path="/home/1" component={() => <Home news={biography}/>} />
                 <Route exact path="/home" component={ () => <Home news={news}/>} />
