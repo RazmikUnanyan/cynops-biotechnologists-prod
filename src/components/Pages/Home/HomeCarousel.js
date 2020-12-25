@@ -75,14 +75,14 @@ const HomeCarousel = ({news}) => {
                             </Modal>
                             <div className="col-md-6">
                                 <div className="details">
-                                    <h2 style={{cursor:"pointer"}}>{n.detailsHeading}</h2>
+                                    <h2>{n.detailsHeading}</h2>
                                     <div className="social-links">
                                         <a href="www.facebook.com" className="twitter"><TwitterIcon/></a>
                                         <a href="www.facebook.com" className="facebook"><FacebookIcon/></a>
                                         <a href="www.facebook.com" className="instagram"><InstagramIcon/></a>
                                         <a href="www.facebook.com" className="linkedin"><LinkedInIcon/></a>
                                     </div>
-                                    <p onDoubleClick={handleClickOpenUpdate}>{n.description}
+                                    <p onDoubleClick={handleClickOpenUpdate} style={{cursor:"pointer"}}>{n.description}
                                         <h6 style={{
                                             fontSize: '12px',
                                             float: 'right',
