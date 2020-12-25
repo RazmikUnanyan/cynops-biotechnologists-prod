@@ -13,7 +13,7 @@ const FormIntro = ({state, updateHomeHeader,onClose}) => {
  const handleChangeHeading = useCallback(data => {
      updateHomeHeader(data);
      onClose()
- }, [updateHomeHeader]);
+ }, [updateHomeHeader,onClose]);
 
     return (
         <Formik initialValues={state} onSubmit={handleChangeHeading}>

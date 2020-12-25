@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import HomeIntro from "./HomeIntro";
 import videoContent from "../../../assets/img/video_content.mp4";
-import narek from "../../../assets/img/narek.jpg";
 import {getHomePage, getUpdateHomePage} from "../../../state/homeReducer";
 import HomeCarousel from "./HomeCarousel";
 
