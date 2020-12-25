@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
-const HomeIntro = ({heading, updateHomeHeader, isEdit, setIsEdit, isLoading}) => {
+const HomeIntro = ({heading, updateHomeHeader, setIsEdit, isLoading}) => {
 
 
 
@@ -69,7 +69,8 @@ const HomeIntro = ({heading, updateHomeHeader, isEdit, setIsEdit, isLoading}) =>
                                 >
                                     <FormControl component="fieldset" fullWidth>
                                         <FormGroup aria-label="position" row>
-                                            <FormIntro setIsEdit={setIsEdit} updateHomeHeader={updateHomeHeader} state={heading}
+                                            <FormIntro onClose={handleCloseModal}
+                                                setIsEdit={setIsEdit} updateHomeHeader={updateHomeHeader} state={heading}
                                                        videoUrl='https://video.nikatv.ru/video/SruTwpDATQ8kQco2cGei'/>
                                         </FormGroup>
                                     </FormControl>

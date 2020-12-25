@@ -8,10 +8,11 @@ import TextField from "@material-ui/core/TextField";
 
 
 
-const FormIntro = ({state, updateHomeHeader}) => {
+const FormIntro = ({state, updateHomeHeader,onClose}) => {
 
  const handleChangeHeading = useCallback(data => {
      updateHomeHeader(data);
+     onClose()
  }, [updateHomeHeader]);
 
     return (
