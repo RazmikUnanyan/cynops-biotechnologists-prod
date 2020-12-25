@@ -3,7 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 import Modal from "../../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import background from '../../../assets/img/background.mp4';
+import background from '../../../assets/img/video.mp4';
 import FormIntro from "./Form/FormIntro";
 import CircularProgress from '@material-ui/core/CircularProgress';
 

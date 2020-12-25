@@ -58,7 +58,7 @@ const HomeContainer = () => {
 
     useEffect(() => {
         dispatch(getHomePage(setIsLoading))
-    }, []);
+    }, [dispatch]);
 
 
 
