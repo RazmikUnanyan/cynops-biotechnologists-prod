@@ -49,8 +49,8 @@ const HomeIntro = ({heading, updateHomeHeader, setIsEdit, isLoading}) => {
                                     onClose={handleCloseModal}
                                     title='Интересно'
                                 >
-                                    <FormControl component="fieldset" fullWidth>
-                                        <FormGroup aria-label="position" row>
+                                    <FormControl component="fieldset" >
+                                        <FormGroup aria-label="position" row  >
                                             <iframe src={heading.videoUrl}
                                                     width="560"
                                                     height="315"

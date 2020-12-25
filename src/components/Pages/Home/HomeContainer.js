@@ -17,7 +17,7 @@ const news = [
         description: 'Новые технологии калужских инженеров помогут людям с ограниченными возможностями.\n' +
             '                                Нарек Унанян разработал бионический протез руки. Уникальность его в том, что он будет\n' +
             '                                работать как человеческая рука\n' +
-        'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
+            'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
             '                                робо-протезов. У каждого свой принцип работы. Деревянный оживает при натяжении\n' +
             '                                сухожилий, у кибер-модели на каждом пальце свой механизм, который регулирует\n' +
             '                                усилие и скорость движений, а ортопедический обладает максимальным визуальным\n' +
@@ -34,7 +34,7 @@ const news = [
         description: 'Новые технологии калужских инженеров помогут людям с ограниченными возможностями.\n' +
             '                                Нарек Унанян разработал бионический протез руки. Уникальность его в том, что он будет\n' +
             '                                работать как человеческая рука\n' +
-        'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
+            'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
             '                                робо-протезов. У каждого свой принцип работы. Деревянный оживает при натяжении\n' +
             '                                сухожилий, у кибер-модели на каждом пальце свой механизм, который регулирует\n' +
             '                                усилие и скорость движений, а ортопедический обладает максимальным визуальным\n' +
@@ -49,24 +49,23 @@ const HomeContainer = () => {
     const dispatch = useDispatch();
     const heading = useSelector(state => state.homePage.heading);
     const [isEdit, setIsEdit] = useState(false);
-    const [isLoading, setIsLoading] =useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         dispatch(getHomePage(setIsLoading))
     }, [dispatch]);
 
 
-
     const updateHomeHeader = async (data) => {
-      dispatch(getUpdateHomePage(data, setIsLoading));
+        dispatch(getUpdateHomePage(data, setIsLoading));
         setIsEdit(false)
     };
 
     return (
         <>
             {(heading || []).map(h => <HomeIntro updateHomeHeader={updateHomeHeader}
-                                                isEdit={isEdit}
-                                                setIsEdit={setIsEdit}
+                                                 isEdit={isEdit}
+                                                 setIsEdit={setIsEdit}
                                                  heading={h}
                                                  isLoading={isLoading}
 

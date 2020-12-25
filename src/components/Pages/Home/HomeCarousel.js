@@ -20,12 +20,13 @@ const HomeCarousel = ({news}) => {
     const handleClickOpenUpdate = useCallback(() => setVisibleModal("update"), []);
     const handleCloseModal = useCallback(() => setVisibleModal(undefined),[]);
     return (
-        <Carousel>
+        <>
+            <Carousel>
             {news.map(n => <Carousel.Item key={n._id}>
                 <section  className="wow fadeIn content-details">
                     <div className="container">
                         <div className="content-header" data-aos="fade-right">
-                            <h2>{n.titleHeader}</h2>
+                            <h2>Новости</h2>
                         </div>
                         <div className="row">
                             <div data-aos="fade-right" className="video_content">
@@ -98,6 +99,7 @@ const HomeCarousel = ({news}) => {
                 </section>
             </Carousel.Item>)}
         </Carousel>
+            </>
     )
 };
 
