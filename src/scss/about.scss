@@ -6,24 +6,15 @@
 .about{
   height: 100%;
   max-width: 900px;
-  margin-top: 50px;
+  margin-top: 150px;
     span{
       color: #f82249;
     }
 &_content {
   height: 100%;
+
   p{
-    color: white;
-    .about_video{
-      width: 300px;
-      height: 300px;
-      float: left;
-      margin: 0;
-      padding: 20px;
-      @media (max-width: $media-width) {
-        width: 100%;
-      }
-    }
+    color: #222636;
     ul{
       list-style: none;
     }

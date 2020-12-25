@@ -1,11 +1,10 @@
 import React from "react";
 import '../../../scss/about.scss'
-import video_about from '../../../assets/img/video_about.mp4'
 
 
 const About = () => {
     return(
-        <section className="wow fadeIn content-details">
+        <section className="wow fadeIn">
             <div className="container about">
                 <div className="content-header about" data-aos="fade-down">
                     <h2>РАЗРАБОТКА <br/><span>ПРОТЕЗА</span> КИСТИ РУКИ.
@@ -44,9 +43,6 @@ const About = () => {
                         объектом в пространстве, необходимо описать положение
                         каждого сочленения. По образу и подобию оригинального образца
                         был сконструирован и собран механизм.
-                        <video autoPlay muted loop className="about_video">
-                            <source src={video_about} type="video/mp4" className="source"/>
-                        </video>
                         При вращении сервопривода рычаг, который закреплён к выходному валу привода, приходит в движение. Что впоследствии приводит в движение весь остальной механизм. Для своего стенда мы
                         используем многорычажный механизм. Такие механизмы удобнее
                         и практичнее в использовании чем механизмы с сухожильными
