@@ -1,70 +1,82 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import HomeIntro from "./HomeIntro";
-import Home from "./Home";
 import videoContent from "../../../assets/img/video_content.mp4";
-import {Route, Switch} from "react-router-dom";
-import narek from '../../../assets/img/narek.jpg'
+import narek from "../../../assets/img/narek.jpg";
+import {getHomePage, getUpdateHomePage} from "../../../state/homeReducer";
+import HomeCarousel from "./HomeCarousel";
+
 
 const news = [
     {
         id: 1,
         videoReview: videoContent,
-        videoUrl: 'https://nikatv.ru/tv/reportazhi-video/h4S1cmRTeBVmSQtFFQpW',
-        titleHeader: 'Interview',
-        titleAutor: 'Юлия Мигуненко, Илья Алиханов, телекомпания Ника ТВ.',
-        detailsHeading: 'Репортаж на Ника ТВ',
-        detailsP1: 'Новые технологии калужских инженеров помогут людям с ограниченными возможностями.\n' +
+        videoUrl: 'https://video.nikatv.ru/video/h4S1cmRTeBVmSQtFFQpW',
+        titleHeader: 'Ника ТВ',
+        detailsHeading: 'Репортаж',
+        titleAuthor: '',
+        description: 'Новые технологии калужских инженеров помогут людям с ограниченными возможностями.\n' +
             '                                Нарек Унанян разработал бионический протез руки. Уникальность его в том, что он будет\n' +
-            '                                работать как человеческая рука.',
-
-        detailsP2: 'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
+            '                                работать как человеческая рука\n' +
+        'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
             '                                робо-протезов. У каждого свой принцип работы. Деревянный оживает при натяжении\n' +
             '                                сухожилий, у кибер-модели на каждом пальце свой механизм, который регулирует\n' +
             '                                усилие и скорость движений, а ортопедический обладает максимальным визуальным\n' +
             '                                сходством с человеческой конечностью. Нарек — выпускник Бауманского, математик\n' +
             '                                в институте проблем управления РАН.',
     },
-];
-
-const biography = [
     {
-        id: 1,
+        id: 2,
         imgUrl: narek,
-        titleHeader: 'Нарек Унанян',
-        detailsHeading:"Биография",
-        isBiography: true,
-        titleAuthor : 'Тамара КУЛАКОВА , www.vest-news.ru',
-        detailsP1:' Нарек Унанян  родился в Армении в 1994 г., в шестилетнем возрасте вместе с родителями - оба они'+
-       ' инженеры - переехал в Москву. Там пошел в первый класс, параллельно учился игре на фортепиано в'+
-       ' музыкальной школе.'+
-      '  Позже семья переехала в Калужскую область, в село Нижние Прыски Козельского района, и мальчик'+
-        'продолжил учебу как в общеобразовательной сельской школе, так и в музыкальной. По-прежнему'+
-       ' успешно участвовал в математических олимпиадах, в том числе в районных.'+
-        'Кроме того, подростком увлекся футболом. На пятерки и четверки окончил школу № 3 города'+
-'Козельска, к тому времени входил в городскую сборную по футболу и заслужил титулы чемпиона'+
-'области и чемпиона всероссийских сборов по футболу.'+
-   ' В 2011 г. поступил в КФ МГТУ им. Баумана на кафедру мехатроники и робототехники.'+
-'Обучался в колледже информационных технологий и автоматизации.'+
-  '  В 2015 г. защитил диплом бакалавра и поступил в магистратуру. На кафедре систем'+
-'автоматического управления занимался под руководством Юрия Игоревича Мышляева. В нынешнем'+
-'году получил диплом магистра, работает на «Фольксвагене» и учится в Москве в аспирантуре.'+
-'Имеет опубликованные научные статьи, в частности, в журнале из перечня ВАК «Технологии'+
-'композиционных материалов для современных электронных систем».'
+        videoUrl: '',
+        twitter:'',
+        facebook:'',
+        instagram:'',
+        linkedin:'',
+        titleHeader: 'Интересно',
+        detailsHeading: "Интервью",
+        titleAuthor: '',
+        description: 'Новые технологии калужских инженеров помогут людям с ограниченными возможностями.\n' +
+            '                                Нарек Унанян разработал бионический протез руки. Уникальность его в том, что он будет\n' +
+            '                                работать как человеческая рука\n' +
+            'Модель руки положила начало экспериментам Нарека Унаняна. Он создал уже несколько\n' +
+            '                                робо-протезов. У каждого свой принцип работы. Деревянный оживает при натяжении\n' +
+            '                                сухожилий, у кибер-модели на каждом пальце свой механизм, который регулирует\n' +
+            '                                усилие и скорость движений, а ортопедический обладает максимальным визуальным\n' +
+            '                                сходством с человеческой конечностью. Нарек — выпускник Бауманского, математик\n' +
+            '                                в институте проблем управления РАН.',
 
-},
+    },
 ];
+
 
 const HomeContainer = () => {
+    const dispatch = useDispatch();
+    const heading = useSelector(state => state.homePage.heading);
+    const [isEdit, setIsEdit] = useState(false);
+    const [isLoading, setIsLoading] =useState(false);
+
+    useEffect(() => {
+        dispatch(getHomePage(setIsLoading))
+    }, []);
+
+
+
+    const updateHomeHeader = async (data) => {
+      dispatch(getUpdateHomePage(data, setIsLoading));
+        setIsEdit(false)
+    };
+
     return (
         <>
-            <HomeIntro titleFirst='you are'
-                       titleRed='not'
-                       titleLast='alone'
-                       description='Посмотреть интервью'/>
-            <Switch>
-                <Route exact path="/home/1" component={() => <Home news={biography}/>} />
-                <Route exact path="/home" component={ () => <Home news={news}/>} />
-            </Switch>
+            {(heading || []).map(h => <HomeIntro updateHomeHeader={updateHomeHeader}
+                                                isEdit={isEdit}
+                                                setIsEdit={setIsEdit}
+                                                 heading={h}
+                                                 isLoading={isLoading}
+
+            />)}
+            <HomeCarousel news={news}/>
         </>
 
     )

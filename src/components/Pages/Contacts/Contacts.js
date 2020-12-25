@@ -50,7 +50,7 @@ const Contacts = () => {
                 <Row>
                     <Col sm={10}>
                         <>
-                            <Formik initialValues={initialValues}>
+                            <Formik initialValues={initialValues} onSubmit={sendEmail}>
                                 {(formik) => {
                                     return (
                                         <Form className="FormikField" >

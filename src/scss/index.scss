@@ -3,6 +3,7 @@
 @import "~normalize.css";
 @import "~bootstrap/scss/bootstrap";
 
+@import "app";
 @import "header";
 @import "homeIntro";
 @import "home";
@@ -11,3 +12,4 @@
 @import "contacts";
 @import "models";
 @import "about";
+@import "modal";

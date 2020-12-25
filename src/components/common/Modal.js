@@ -16,13 +16,15 @@ const Modal = ({ title, onClose, visible = false, children }) => {
             onClose={onClose}
             aria-labelledby="form-dialog-title"
         >
-            <DialogTitle id="form-dialog-title">
+            <DialogTitle id="form-dialog-title" className="modal_header">
                 <IconButton onClick={onClose} color="secondary" aria-label="close">
-                    <CloseIcon style={{ fontSize: 26 }} color="secondary" />
+                    <CloseIcon style={{ fontSize: 26 }} color="action" />
                 </IconButton>
                 {title}
             </DialogTitle>
-            <DialogContent >{children}</DialogContent>
+            <DialogContent className="modal_content">
+                {children}
+            </DialogContent>
         </Dialog>
     );
 };

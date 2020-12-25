@@ -1,54 +1,82 @@
-import React, { useCallback, useState } from "react";
+import React, {useCallback, useState} from "react";
+import ReactHtmlParser from 'react-html-parser';
 import Modal from "../../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import video from '../../../assets/img/video.mp4';
+import background from '../../../assets/img/background.mp4';
+import FormIntro from "./Form/FormIntro";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-const HomeIntro = ({ titleFirst, titleRed, titleLast, description }) => {
 
-    const [visibleModal, setVisibleModal] = useState(false);
-    const handleClickOpenVideo = useCallback(() => { setVisibleModal(true); }, []);
-    const handleCloseModal = useCallback(() => { setVisibleModal(false); }, []);
+const HomeIntro = ({heading, updateHomeHeader, isEdit, setIsEdit, isLoading}) => {
+
+
+
+    const [visibleModal, setVisibleModal] = useState();
+
+    const handleClickOpenVideo = useCallback(() => setVisibleModal("video"), []);
+    const handleClickOpenUpdate = useCallback(() => setVisibleModal("update"), []);
+    const handleCloseModal = useCallback(() => setVisibleModal(undefined),[]);
 
     return (
-        <div className="home_header">
+        <div className="home_header" key={heading._id}>
             <div className="video">
                 <video autoPlay muted loop className="video-back"
                 >
-                    <source src={video} type="video/mp4" />
+                    <source src={background} type="video/mp4"/>
                 </video>
             </div>
             <div className="home_header__container">
-                <div>
-                    <h2 data-aos="fade-down">{titleFirst} <br /><span> {titleRed} </span> {titleLast}</h2>
-                    <p data-aos="flip-up">{description}</p>
-                    <section className="intro">
-                        <div className="intro-container wow fadeIn">
-                            <span onClick={handleClickOpenVideo} className="venobox play-btn mb-4"
-                                data-vbtype="video"
-                                data-autoplay="true">
-                            </span>
-                            <Modal
-                                visible={visibleModal}
-                                onClose={handleCloseModal}
-                                title='Программа "Интересно"'
-                            >
-                                <FormControl component="fieldset" fullWidth>
-                                    <FormGroup aria-label="position" row>
-                                        <iframe src="https://video.nikatv.ru/video/SruTwpDATQ8kQco2cGei"
-                                            width="560"
-                                            height="315"
-                                            frameborder="0"
-                                            allowfullscreen title='video_header'
-                                        >
-                                        </iframe>
-                                    </FormGroup>
-                                </FormControl>
-                            </Modal>
+                     <div>
+                        {!isLoading
+                        && <div style={{cursor:"pointer"}} onDoubleClick={handleClickOpenUpdate}>
+                            <h2 data-aos="fade-down">{ReactHtmlParser(heading.title)}</h2>
+                            <p data-aos="flip-up">{heading.description}</p>
                         </div>
-                    </section>
-                </div>
+                        }
+                        <section className="intro">
+                            <div className="intro-container wow fadeIn">
+                                {!isLoading
+                                    ? <span onClick={handleClickOpenVideo} className="venobox play-btn mb-4"
+                                            data-vbtype="video"
+                                            data-autoplay="true">
+                            </span>
+                                    : <CircularProgress color="secondary"/>
+                                }
+                                <Modal
+                                    visible={visibleModal === "video"}
+                                    onClose={handleCloseModal}
+                                    title='Интересно'
+                                >
+                                    <FormControl component="fieldset" fullWidth>
+                                        <FormGroup aria-label="position" row>
+                                            <iframe src={heading.videoUrl}
+                                                    width="560"
+                                                    height="315"
+                                                    frameBorder="0" allow="autoplay; fullscreen; vr"
+                                                    allowFullScreen
+                                                    title='video_header'
+                                            >
+                                            </iframe>
+                                        </FormGroup>
+                                    </FormControl>
+                                </Modal>
+                                <Modal
+                                    visible={visibleModal === "update"}
+                                    onClose={handleCloseModal}
+                                    title='Редактировать'
+                                >
+                                    <FormControl component="fieldset" fullWidth>
+                                        <FormGroup aria-label="position" row>
+                                            <FormIntro setIsEdit={setIsEdit} updateHomeHeader={updateHomeHeader} state={heading}
+                                                       videoUrl='https://video.nikatv.ru/video/SruTwpDATQ8kQco2cGei'/>
+                                        </FormGroup>
+                                    </FormControl>
+                                </Modal>
+                            </div>
+                        </section>
+                    </div>
             </div>
         </div>
     )
