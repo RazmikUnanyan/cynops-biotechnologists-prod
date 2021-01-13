@@ -1,4 +1,5 @@
 import React, {useCallback, useState} from "react";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import Modal from "../../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
@@ -33,7 +34,9 @@ const HomeCarousel = ({news}) => {
                                             <video autoPlay muted loop className="card-img-top">
                                                 <source src={n.linkedin} type="video/mp4" className="source"/>
                                             </video>
-                                            <span onClick={handleClickOpenVideo}/>
+                                            <span onClick={handleClickOpenVideo}>
+                                                <PlayCircleFilledIcon/>
+                                            </span>
                                         </>
                                         : < img
                                             src={n.imgUrl}
