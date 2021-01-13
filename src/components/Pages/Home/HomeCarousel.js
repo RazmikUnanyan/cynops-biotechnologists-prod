@@ -1,16 +1,12 @@
 import React, {useCallback, useState} from "react";
-import {Carousel} from "react-bootstrap";
-import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import Modal from "../../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import EditIcon from "@material-ui/icons/Edit";
 import FormNews from "./Form/FormNews";
+import {NavLink} from "react-router-dom";
+import PostAddIcon from '@material-ui/icons/PostAdd';
 
 const HomeCarousel = ({news}) => {
 
@@ -18,40 +14,52 @@ const HomeCarousel = ({news}) => {
 
     const handleClickOpenVideo = useCallback(() => setVisibleModal("video"), []);
     const handleClickOpenUpdate = useCallback(() => setVisibleModal("update"), []);
-    const handleCloseModal = useCallback(() => setVisibleModal(undefined),[]);
+    const handleCloseModal = useCallback(() => setVisibleModal(undefined), []);
     return (
         <>
-            <Carousel>
-            {news.map(n => <Carousel.Item key={n._id}>
-                <section  className="wow fadeIn content-details">
-                    <div className="container">
-                        <div className="content-header" data-aos="fade-right">
-                            <h2>Новости</h2>
-                        </div>
-                        <div className="row">
-                            <div data-aos="fade-right" className="video_content">
-                                {n.videoReview
-                                    ? <>
-                                        <video autoPlay muted loop>
-                                            <source src={n.videoReview} type="video/mp4" className="source"/>
-                                        </video>
-                                        <span onClick={handleClickOpenVideo}>
-                                    <PlayCircleFilledIcon/>
-                                </span>
-                                    </>
-                                    : < img
-                                        src={n.imgUrl}
-                                        alt="img1" className="img-fluid"/>
-                                }
+            <section id="news-content">
+                <div className="container">
+                    <div className="title">
+                        <h1>Новости</h1>
+                        <p>Наши последние новости</p>
+                        <div onClick={handleClickOpenUpdate}><PostAddIcon/></div>
+                    </div>
+                    <div className="row" data-aos="fade-up">
+                        {news.map(n => <div className="col-md-4" key={n.id}>
+                            <div className="card text-center">
+                                <div>
+                                    {n.linkedin
+                                        ? <>
+                                            <video autoPlay muted loop className="card-img-top">
+                                                <source src={n.linkedin} type="video/mp4" className="source"/>
+                                            </video>
+                                            <span onClick={handleClickOpenVideo}/>
+                                        </>
+                                        : < img
+                                            src={n.imgUrl}
+                                            alt="img1" className="card-img-top"/>
+                                    }
+                                    <div className="card-body">
+                                        <h5 className="card-title">{n.detailsHeading}</h5>
+                                        <p className="card-text">
+                                            {n.titleHeader}
+                                        </p>
+                                        <NavLink to={`/home/${n._id}`}>Подробнее</NavLink>
+                                    </div>
+                                    <div style={{display: 'flex'}}>
+                                        <DeleteOutlineIcon/>
+                                        <EditIcon/>
+                                    </div>
+                                </div>
                             </div>
                             <Modal
                                 visible={visibleModal === "video"}
                                 onClose={handleCloseModal}
-                                title={n.detailsHeading}
+                                title="Репортаж"
                             >
                                 <FormControl component="fieldset" fullWidth>
                                     <FormGroup aria-label="position" row>
-                                        <iframe src={n.videoUrl}
+                                        <iframe src="https://video.nikatv.ru/video/h4S1cmRTeBVmSQtFFQpW"
                                                 width="560"
                                                 height="315"
                                                 title={n.detailsHeading}
@@ -74,32 +82,13 @@ const HomeCarousel = ({news}) => {
                                     </FormGroup>
                                 </FormControl>
                             </Modal>
-                            <div className="col-md-6">
-                                <div className="details">
-                                    <h2>{n.detailsHeading}</h2>
-                                    <div className="social-links">
-                                        <a href="www.facebook.com" className="twitter"><TwitterIcon/></a>
-                                        <a href="www.facebook.com" className="facebook"><FacebookIcon/></a>
-                                        <a href="www.facebook.com" className="instagram"><InstagramIcon/></a>
-                                        <a href="www.facebook.com" className="linkedin"><LinkedInIcon/></a>
-                                    </div>
-                                    <p onDoubleClick={handleClickOpenUpdate} style={{cursor:"pointer"}}>{n.description}
-                                        <h6 style={{
-                                            fontSize: '12px',
-                                            float: 'right',
-                                            color: '#afafaf'
-                                        }}>{n.titleAuthor}</h6>
-                                    </p>
-                                </div>
-                            </div>
-                            <span><DeleteOutlineIcon/></span>
-                            <span><EditIcon/></span>
-                        </div>
+                        </div>)}
                     </div>
-                </section>
-            </Carousel.Item>)}
-        </Carousel>
-            </>
+                    <hr/>
+                </div>
+            </section>
+        </>
+
     )
 };
 

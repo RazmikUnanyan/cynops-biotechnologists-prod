@@ -18,4 +18,22 @@ export const homeAPI = {
         return instance.put(`header/${data._id}`, data);
 
     },
+
+    getNews(){
+        return instance.get('news')
+            .then(response => {
+                return response.data;
+            });
+    },
+
+    addNews(data) {
+        return instance.post(`news`, data);
+    },
+
+    getOneNews(id) {
+        return instance.get(`news/${id}`)
+            .then(response => {
+            return response.data;
+        });
+    },
 };

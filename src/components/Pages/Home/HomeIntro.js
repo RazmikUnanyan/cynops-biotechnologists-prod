@@ -3,7 +3,6 @@ import ReactHtmlParser from 'react-html-parser';
 import Modal from "../../common/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import background from '../../../assets/img/video.mp4';
 import FormIntro from "./Form/FormIntro";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -14,7 +13,6 @@ const HomeIntro = ({heading, updateHomeHeader, setIsEdit, isLoading}) => {
 
 
     const [visibleModal, setVisibleModal] = useState();
-
     const handleClickOpenVideo = useCallback(() => setVisibleModal("video"), []);
     const handleClickOpenUpdate = useCallback(() => setVisibleModal("update"), []);
     const handleCloseModal = useCallback(() => setVisibleModal(undefined),[]);
@@ -24,7 +22,7 @@ const HomeIntro = ({heading, updateHomeHeader, setIsEdit, isLoading}) => {
             <div className="video">
                 <video autoPlay muted loop className="video-back"
                 >
-                    <source src={background} type="video/mp4"/>
+                    <source src="https://static.videezy.com/system/resources/previews/000/038/585/original/alb_branstrm109_1080p_24fps.mp4" type="video/mp4"/>
                 </video>
             </div>
             <div className="home_header__container">
