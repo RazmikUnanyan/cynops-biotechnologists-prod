@@ -7,7 +7,7 @@ const TextEditor = ({setNewDescription}) => {
     const handleChange =useCallback( (e, editor) => {
         const data = editor.getData();
         setNewDescription(data)
-    }, []);
+    }, [setNewDescription]);
     return (
         <div style={{maxWidth: 500, marginTop: 20}}>
             <CKEditor
