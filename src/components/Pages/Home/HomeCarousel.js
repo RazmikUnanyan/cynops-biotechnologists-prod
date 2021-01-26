@@ -9,6 +9,8 @@ import FormNews from "./Form/FormNews";
 import {NavLink} from "react-router-dom";
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import {Link} from "react-scroll"
+import video from "../../../assets/img/video.mp4"
+import video_content from "../../../assets/img/video_content.mp4"
 
 
 const HomeCarousel = ({news, isAuth}) => {
@@ -27,14 +29,14 @@ const HomeCarousel = ({news, isAuth}) => {
                         <p>Наши последние новости</p>
                         {isAuth && <div onClick={handleClickOpenUpdate}><PostAddIcon/></div>}
                     </div>
-                    <div className="row" data-aos="fade-up">
-                        {news.map(n => <div className="col-md-4" key={n.id}>
+                    <div className="row cards" data-aos="fade-up">
+                        {news.map(n => <div className="col-md-4 "  key={n.id}>
                             <div className="card text-center">
                                 <div>
                                     {n.linkedin
                                         ? <>
                                             <video autoPlay muted loop className="card-img-top">
-                                                <source src={n.linkedin} type="video/mp4" className="source"/>
+                                                <source src={n.detailsHeading === "Репортаж"? video_content :video}  className="source"/>
                                             </video>
                                             <span onClick={handleClickOpenVideo}>
                                                 <PlayCircleFilledIcon/>
@@ -42,14 +44,14 @@ const HomeCarousel = ({news, isAuth}) => {
                                         </>
                                         : < img
                                             src={n.imgUrl}
-                                            alt="img1" className="card-img-top"/>
+                                            alt="img1" className="card-img-top h-100"/>
                                     }
                                     <div className="card-body">
                                         <h5 className="card-title">{n.detailsHeading}</h5>
                                         <p className="card-text">
                                             {n.titleHeader}
                                         </p>
-                                        <Link to="news-content" smooth={true} duration={2000}><NavLink to={`/home/${n._id}`} >Подробнее</NavLink></Link>
+                                        <Link to="news-content" smooth={true} duration={800}><NavLink to={`/home/${n._id}`} >Подробнее</NavLink></Link>
                                     </div>
                                     {isAuth && <div style={{display: 'flex'}}>
                                         <DeleteOutlineIcon/>

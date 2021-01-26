@@ -5,20 +5,26 @@
 
 .news {
   padding: 30px 0;
-video, img{
+
+video{
   height: 220px;
+
 }
   span {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height:220px;
     width: 100%;
-    background-color: rgba(28, 28, 28, 0.54);
+    background-color: rgba(28, 28, 28, 0.69);
     color: #f82249;
     position: absolute;
     top: 0;
     cursor: pointer;
+    &:hover{
+      background-color: rgba(17, 17, 64, 0.32);
+      transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
   }
 
   h1 {
