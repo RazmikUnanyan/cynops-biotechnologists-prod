@@ -12,7 +12,7 @@ const HomeContainer = () => {
     const {heading, news, oneNews} = useSelector(state => state.homePage);
     const [isEdit, setIsEdit] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [isAuth, setIsAuth] = useState(false);
+    const isAuth = false
     useEffect(() => {
         dispatch(getHomePage(setIsLoading));
         dispatch(getHomeNews());

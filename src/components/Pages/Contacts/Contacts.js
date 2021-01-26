@@ -20,7 +20,7 @@ const Contacts = ({setEmailForm}) => {
     const handleClose = useCallback(() => {
         setOpen(false);
         setEmailForm(false)
-    }, []);
+    }, [setEmailForm]);
 
     const sendEmail = (e) => {
         e.preventDefault();
