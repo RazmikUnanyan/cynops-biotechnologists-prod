@@ -8,6 +8,8 @@ import EditIcon from "@material-ui/icons/Edit";
 import FormNews from "./Form/FormNews";
 import {NavLink} from "react-router-dom";
 import PostAddIcon from '@material-ui/icons/PostAdd';
+import {Link} from "react-scroll"
+
 
 const HomeCarousel = ({news, isAuth}) => {
 
@@ -18,7 +20,7 @@ const HomeCarousel = ({news, isAuth}) => {
     const handleCloseModal = useCallback(() => setVisibleModal(undefined), []);
     return (
         <>
-            <section id="news-content">
+            <section className="news">
                 <div className="container">
                     <div className="title">
                         <h1>Новости</h1>
@@ -47,7 +49,7 @@ const HomeCarousel = ({news, isAuth}) => {
                                         <p className="card-text">
                                             {n.titleHeader}
                                         </p>
-                                        <NavLink to={`/home/${n._id}`}>Подробнее</NavLink>
+                                        <NavLink to={`/home/${n._id}`} ><Link to="news-content" smooth={true} duration={2000}>Подробнее</Link></NavLink>
                                     </div>
                                     {isAuth && <div style={{display: 'flex'}}>
                                         <DeleteOutlineIcon/>
