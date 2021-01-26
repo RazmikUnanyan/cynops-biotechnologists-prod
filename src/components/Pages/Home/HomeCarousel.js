@@ -9,7 +9,7 @@ import FormNews from "./Form/FormNews";
 import {NavLink} from "react-router-dom";
 import PostAddIcon from '@material-ui/icons/PostAdd';
 
-const HomeCarousel = ({news}) => {
+const HomeCarousel = ({news, isAuth}) => {
 
     const [visibleModal, setVisibleModal] = useState();
 
@@ -23,7 +23,7 @@ const HomeCarousel = ({news}) => {
                     <div className="title">
                         <h1>Новости</h1>
                         <p>Наши последние новости</p>
-                        <div onClick={handleClickOpenUpdate}><PostAddIcon/></div>
+                        {isAuth && <div onClick={handleClickOpenUpdate}><PostAddIcon/></div>}
                     </div>
                     <div className="row" data-aos="fade-up">
                         {news.map(n => <div className="col-md-4" key={n.id}>
@@ -49,10 +49,10 @@ const HomeCarousel = ({news}) => {
                                         </p>
                                         <NavLink to={`/home/${n._id}`}>Подробнее</NavLink>
                                     </div>
-                                    <div style={{display: 'flex'}}>
+                                    {isAuth && <div style={{display: 'flex'}}>
                                         <DeleteOutlineIcon/>
                                         <EditIcon/>
-                                    </div>
+                                    </div>}
                                 </div>
                             </div>
                             <Modal

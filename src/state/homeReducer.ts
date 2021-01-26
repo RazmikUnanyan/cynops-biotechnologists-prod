@@ -6,9 +6,21 @@ const SET_HOME_PAGE= 'home/SET_HOME_PAGE';
 const SET_HOME_NEWS= 'home/SET_HOME_NEWS';
 const SET_ONE_HOME_NEWS= 'home/SET_ONE_HOME_NEWS';
 
+type Heading ={
+    title : string
+    videoUrl: string
+    description:string
+
+}
+
+type InitialState = {
+    heading: Heading[]
+    news:any,
+    oneNews:any
+}
 
 
-let initialState ={
+let initialState:InitialState ={
     heading:[{
     title : "Nhtnbq запрос на сервер",
     videoUrl: "https://video.nikatv.ru/video/SruTwpDATQ8kQco2cGei",
@@ -19,7 +31,7 @@ let initialState ={
     oneNews:[]
 };
 
-const homeReducer = (state = initialState, action) => {
+const homeReducer = (state:InitialState = initialState, action:any):InitialState => {
     switch (action.type) {
         case SET_HOME_PAGE:
             return {
@@ -42,11 +54,15 @@ const homeReducer = (state = initialState, action) => {
     }
 };
 
-const setHomeHeading = (heading) => ({type: SET_HOME_PAGE, heading});
-const setHomeNews = (news) => ({type: SET_HOME_NEWS, news});
-const setOneNews = (news) => ({type: SET_ONE_HOME_NEWS, news});
+type HomeHeadingActionType={
+    type: typeof SET_HOME_PAGE
+    heading: any
+}
+const setHomeHeading = (heading: any):HomeHeadingActionType => ({type: SET_HOME_PAGE, heading});
+const setHomeNews = (news:any) => ({type: SET_HOME_NEWS, news});
+const setOneNews = (news: any) => ({type: SET_ONE_HOME_NEWS, news});
 
-export const getHomePage = (setIsLoading) => async Dispatch =>{
+export const getHomePage = (setIsLoading: (isLoading: boolean)=>void) => async( Dispatch: any) =>{
     setIsLoading(true);
     try{
         const response = await homeAPI.getHeader();
@@ -56,7 +72,7 @@ export const getHomePage = (setIsLoading) => async Dispatch =>{
     }
     setIsLoading(false);
 };
-export const getUpdateHomePage = (data, setIsLoading) => async Dispatch =>{
+export const getUpdateHomePage = (data: any, setIsLoading: (isLoading: boolean)=>void) => async (Dispatch: any) =>{
     setIsLoading(true);
     try {
         await homeAPI.updateHeader({...data, title: getHomeTitle(data.title)});
@@ -67,7 +83,7 @@ export const getUpdateHomePage = (data, setIsLoading) => async Dispatch =>{
     }
     setIsLoading(false)
 };
-export const getHomeNews = () => async Dispatch =>{
+export const getHomeNews = () => async (Dispatch: any) =>{
     try{
         const response = await homeAPI.getNews();
         Dispatch(setHomeNews(response));
@@ -75,7 +91,7 @@ export const getHomeNews = () => async Dispatch =>{
         throw (e)
     }
 };
-export const getOneNews = id => async Dispatch =>{
+export const getOneNews = (id: string) => async (Dispatch: any) =>{
     try{
         const response = await homeAPI.getOneNews(id);
         Dispatch(setOneNews(response));
@@ -83,7 +99,7 @@ export const getOneNews = id => async Dispatch =>{
         throw (e)
     }
 };
-export const addHomeNews = (news) => async Dispatch =>{
+export const addHomeNews = (news: any) => async(Dispatch: any) =>{
     try{
         const response = await homeAPI.addNews(news);
         Dispatch(setHomeNews(response));

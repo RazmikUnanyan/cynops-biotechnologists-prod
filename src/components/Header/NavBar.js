@@ -114,6 +114,7 @@ const NavBar = ({open, setOpen}) => {
                 <ContactsModal handleOpenEmailForm={handleOpenEmailForm}
                                emailForm={emailForm}
                                handleCloseModal={handleCloseModal}
+                               setEmailForm={setEmailForm}
                 />
                 <LogInModal handleOpenLogInForm={handleOpenLogInForm}
                             logInForm={logInForm}
@@ -123,7 +124,7 @@ const NavBar = ({open, setOpen}) => {
     )
 };
 
-const ContactsModal = ({handleOpenEmailForm, emailForm, handleCloseModal}) => (
+const ContactsModal = ({handleOpenEmailForm, emailForm, handleCloseModal, setEmailForm}) => (
     <li>
         <button onClick={handleOpenEmailForm}><MailOutlineIcon/></button>
         <Modal
@@ -132,7 +133,7 @@ const ContactsModal = ({handleOpenEmailForm, emailForm, handleCloseModal}) => (
         >
             <FormControl component="fieldset" fullWidth>
                 <FormGroup aria-label="position" row>
-                    <Contacts/>
+                    <Contacts setEmailForm={setEmailForm}/>
                 </FormGroup>
             </FormControl>
         </Modal>

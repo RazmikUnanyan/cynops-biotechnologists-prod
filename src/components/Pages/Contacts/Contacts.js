@@ -1,14 +1,12 @@
-import React, { useState, useCallback } from "react";
-import { Form, Formik } from "formik";
+import React, {useState, useCallback} from "react";
+import { Formik} from "formik";
 import Button from "@material-ui/core/Button";
 import emailjs from "emailjs-com";
-import FormField from "../../common/FormField";
 import Icon from "@material-ui/core/Icon";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import TextField from "@material-ui/core/TextField";
-import { Col, Container, Row, Tab } from "react-bootstrap";
 
 const initialValues = {
     name: "",
@@ -17,21 +15,18 @@ const initialValues = {
     message: "",
 };
 
-const Contacts = () => {
+const Contacts = ({setEmailForm}) => {
     const [open, setOpen] = useState(false);
     const handleClose = useCallback(() => {
         setOpen(false);
+        setEmailForm(false)
     }, []);
 
-    function sendEmail(e) {
+    const sendEmail = (e) => {
         e.preventDefault();
-        emailjs
-            .sendForm(
-                "service_4vgkmtp",
-                "template_l8jncb9",
-                e.target,
-                "user_371J8LaP1QdAjP0BrzrVV"
-            )
+        emailjs.sendForm("service_4vgkmtp", "template_l8jncb9",
+            e.target, "user_371J8LaP1QdAjP0BrzrVV"
+        )
             .then(
                 (result) => {
                     console.log(result.text);
@@ -43,54 +38,58 @@ const Contacts = () => {
         e.target.reset();
         setOpen(true);
     }
-
     return (
-        <Container>
-            <Tab.Container id="ledt-tabs-example">
-                <Row>
-                    <Col sm={10}>
-                        <>
-                            <Formik initialValues={initialValues} onSubmit={sendEmail}>
-                                {(formik) => {
-                                    return (
-                                        <Form className="FormikField" >
-                                            <form onSubmit={sendEmail}>
-                                                <FormField name="name" label="Name" />
-                                                <FormField name="email" label="Email Address" />
-                                                <FormField name="subject" label="Subject" />
-                                                <TextField
-                                                    multiline
-                                                    style={{ marginTop: "20px" }}
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    name="message"
-                                                    label="Your message"
-                                                />
-                                                <hr />
-                                                <Button
-                                                    disabled={!formik.dirty}
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    size="small"
-                                                    endIcon={<Icon>send</Icon>}
-                                                    type="submit"
-                                                >
-                                                </Button>
-                                            </form>
-                                        </Form>
-                                    );
-                                }}
-                            </Formik>
-                            {open && <Modal handleClose={handleClose} open={open} />}
-                        </>
-                    </Col>
-                </Row>
-            </Tab.Container>
-        </Container>
-    );
+        <>
+            <Formik initialValues={initialValues} onSubmit={sendEmail}>
+                {({values, target, handleChange}) => {
+                    return (
+                        <form onSubmit={sendEmail}>
+                            <TextField name="name"
+                                       label="Name"
+                                       value={values.name}
+                                       onChange={handleChange}
+                                       fullWidth
+                            />
+                            <TextField name="email"
+                                       label="Email Address"
+                                       value={values.email}
+                                       onChange={handleChange}
+                                       fullWidth
+                            />
+                            <TextField name="subject"
+                                       label="Тема"
+                                       value={values.subject}
+                                       onChange={handleChange}
+                                       fullWidth
+                            />
+                            <TextField multiline
+                                       style={{marginTop: "20px"}}
+                                       fullWidth
+                                       variant="outlined"
+                                       name="message"
+                                       label="Your message"
+                                       value={values.message}
+                                       onChange={handleChange}
+                            />
+                            <hr/>
+                            <Button
+                                style={{margin: '20px 0'}}
+                                variant="contained"
+                                color="secondary"
+                                size="small"
+                                endIcon={<Icon>send</Icon>}
+                                type="submit"
+                            >
+                            </Button>
+                        </form>
+                    )
+                }}
+            </Formik>
+            {open && <Modal handleClose={handleClose} open={open}/>}
+        </>)
 };
 
-export const Modal = ({ handleClose, open }) => {
+export const Modal = ({handleClose, open}) => {
     return (
         <Dialog
             open={open}
@@ -102,7 +101,7 @@ export const Modal = ({ handleClose, open }) => {
                     Ваше письмо успешно отправлено!
                 </p>
             </DialogContent>
-            <DialogActions style={{ display: "flex", justifyContent: "center" }}>
+            <DialogActions style={{display: "flex", justifyContent: "center"}}>
                 <Button onClick={handleClose} color="secondary" variant="contained">
                     OK
                 </Button>

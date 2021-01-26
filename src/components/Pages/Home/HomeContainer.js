@@ -12,6 +12,7 @@ const HomeContainer = () => {
     const {heading, news, oneNews} = useSelector(state => state.homePage);
     const [isEdit, setIsEdit] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [isAuth, setIsAuth] = useState(false);
     useEffect(() => {
         dispatch(getHomePage(setIsLoading));
         dispatch(getHomeNews());
@@ -36,8 +37,8 @@ const HomeContainer = () => {
                                                  key={h._id}
 
             />)}
-            <HomeCarousel news={news}/>
-            <Home news={oneNews}/>
+            <HomeCarousel news={news} isAuth={isAuth}/>
+            <Home news={oneNews} isLoading={isLoading}/>
         </>
 
     )

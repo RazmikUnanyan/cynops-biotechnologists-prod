@@ -2,7 +2,7 @@ import React from "react";
 import Input from "@material-ui/core/TextField";
 import { Field } from "formik";
 
-const FormField = ({ name, label }) => {
+const FormField = ({ name, label, value, onChange }) => {
   return (
     <div className="FormikField">
       <Field
@@ -12,6 +12,8 @@ const FormField = ({ name, label }) => {
         placeholder={label}
         name={name}
         fullWidth
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
