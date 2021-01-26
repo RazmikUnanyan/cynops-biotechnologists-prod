@@ -166,10 +166,8 @@ const LogInModal = ({handleOpenLogInForm, logInForm, handleCloseLogInForm}) => (
                     <Button
                         onClick={handleCloseLogInForm}
                         variant="contained"
-                        color="primary"
                         fullWidth
-                        style={{margin:'10px'}}
-
+                        style={{margin:'10px',  backgroundColor: '#f82249', color: "white"}}
                     >
                         Войти
                     </Button>

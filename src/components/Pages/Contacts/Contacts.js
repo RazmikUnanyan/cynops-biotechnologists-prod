@@ -73,10 +73,9 @@ const Contacts = ({setEmailForm}) => {
                             />
                             <hr/>
                             <Button
-                                style={{margin: '20px 0'}}
+                                style={{margin: '20px 0',  backgroundColor: '#f82249',color: "white"}}
                                 variant="contained"
-                                color="secondary"
-                                size="small"
+                                fullWidth
                                 endIcon={<Icon>send</Icon>}
                                 type="submit"
                             >
