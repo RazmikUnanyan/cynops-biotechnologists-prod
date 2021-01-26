@@ -49,7 +49,7 @@ const HomeCarousel = ({news, isAuth}) => {
                                         <p className="card-text">
                                             {n.titleHeader}
                                         </p>
-                                        <NavLink to={`/home/${n._id}`} ><Link to="news-content" smooth={true} duration={2000}>Подробнее</Link></NavLink>
+                                        <Link to="news-content" smooth={true} duration={2000}><NavLink to={`/home/${n._id}`} >Подробнее</NavLink></Link>
                                     </div>
                                     {isAuth && <div style={{display: 'flex'}}>
                                         <DeleteOutlineIcon/>

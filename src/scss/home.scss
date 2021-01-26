@@ -40,14 +40,9 @@ video, img{
 }
 
 #news-content{
-  height: 100vh;
   padding: 100px 0;
   .title {
     text-align: center;
     padding: 25px 0;
-  }
-  @media (max-width: $media-width) {
-    margin-bottom: 20px;
-    height:auto;
   }
 }
