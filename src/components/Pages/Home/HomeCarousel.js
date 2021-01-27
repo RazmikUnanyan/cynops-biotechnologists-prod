@@ -36,7 +36,7 @@ const HomeCarousel = ({news, isAuth}) => {
                                     {n.linkedin
                                         ? <>
                                             <video autoPlay muted loop className="card-img-top">
-                                                <source src={n.detailsHeading === "Репортаж"? video_content :video}  className="source"/>
+                                                <source src={n.detailsHeading === "Репортаж"? video_content : n.linkedin}  className="source"/>
                                             </video>
                                             <span onClick={handleClickOpenVideo}>
                                                 <PlayCircleFilledIcon/>
