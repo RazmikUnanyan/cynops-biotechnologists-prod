@@ -22,7 +22,7 @@ const HomeIntro = ({heading, updateHomeHeader, setIsEdit, isLoading}) => {
             <div className="video">
                 <video autoPlay muted loop className="video-back"
                 >
-                    <source src="https://static.videezy.com/system/resources/previews/000/022/019/original/beautiful-hd-venus-planet-background.mp4"/>
+                    <source src="https://static.videezy.com/system/resources/previews/000/055/787/original/4k-abstract-ancient-ink-vfx-human-arm-anatomy-reveal-animation.mp4"/>
                 </video>
             </div>
             <div className="home_header__container">
